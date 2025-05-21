@@ -4,6 +4,7 @@ import Link from 'next/link';
 import { Button } from '@/components/ui/button';
 import { Card, CardContent, CardHeader, CardTitle, CardDescription } from '@/components/ui/card';
 import { ArrowRight, Users, HelpCircle, MapPin as MapPinIconLucide, Package, Phone, MessageSquare } from 'lucide-react'; 
+import { Typewriter } from '@/components/ui/typewriter'; // Added Typewriter
 
 // Product Section Content
 import type { Product } from '@/lib/types';
@@ -21,7 +22,6 @@ import {
   AccordionItem,
   AccordionTrigger,
 } from "@/components/ui/accordion";
-// Removed InteractiveMap import as it's no longer used directly here
 
 const sampleProducts: Product[] = [
   {
@@ -194,7 +194,7 @@ const sampleProducts: Product[] = [
   },
   {
     id: 'prod-15',
-    name: 'Exide GQP24V2550VA', // Corrected name from GQP24V2250VA based on product list
+    name: 'Exide GQP24V2550VA',
     imageUrl: 'https://www.inverterhome.in/wp-content/uploads/2024/12/Exide-Inverterz-GQP-900VA-Inverter-300x300.jpg',
     dataAiHint: 'office ups',
     specifications: [
@@ -284,7 +284,7 @@ export default function HomePage() {
         <div className="absolute inset-0 bg-black/60 z-10" />
         <div className="relative z-20 p-6 max-w-3xl mx-auto">
           <h1 className="text-4xl sm:text-5xl md:text-6xl font-bold font-heading mb-4 drop-shadow-lg">
-            Power Up Your Journey with Royal Batteries
+            Power Up Your Journey with <Typewriter text="Royal Batteries" speed={100} className="inline-block text-primary" />
           </h1>
           <p className="text-lg sm:text-xl md:text-2xl mb-8 drop-shadow-md">
             Your trusted authorized Exide dealer in Medak. Quality, Reliability, and Service.
@@ -301,7 +301,6 @@ export default function HomePage() {
               </Link>
             </Button>
           </div>
-          {/* "23+ years of service" text added below buttons */}
           <div className="mt-8 text-center">
             <span className="text-3xl sm:text-4xl md:text-5xl font-bold text-primary drop-shadow-lg">23</span>
             <span className="text-md sm:text-lg md:text-xl text-primary-foreground drop-shadow-md">
