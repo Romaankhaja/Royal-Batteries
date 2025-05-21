@@ -22,6 +22,10 @@ import {
   AccordionTrigger,
 } from "@/components/ui/accordion";
 
+// Map Component (no longer used directly, but kept for potential future use)
+// import { InteractiveMap } from '@/components/map/interactive-map';
+
+
 const sampleProducts: Product[] = [
   {
     id: '1',
@@ -112,12 +116,11 @@ const faqItems: FAQItem[] = [
   },
 ];
 
-// Store details based on user input and https://maps.app.goo.gl/CGc54jkMYS78BPB28
 const STORE_NAME_DISPLAY = "Royal Batteries - Exide Battery Dealer in Gajwel";
 const STORE_ADDRESS_DISPLAY_LINE1 = "Shop No: 7-1/1/1, Opposite Munsif Court";
 const STORE_ADDRESS_DISPLAY_LINE2 = "Main Road, Gajwel, Telangana";
-const GOOGLE_MAPS_DIRECTIONS_ADDRESS = "Royal Batteries - Exide Battery Dealer in Gajwel, Gajwel, Telangana 502312, India"; // Address from the shared map link for directions
-const STORE_HOURS = "Mon - Sat: 9:00 AM - 7:00 PM | Sun: Closed";
+const GOOGLE_MAPS_DIRECTIONS_ADDRESS = "Royal Batteries - Exide Battery Dealer in Gajwel, Gajwel, Telangana 502312, India"; // From https://maps.app.goo.gl/CGc54jkMYS78BPB28
+const STORE_HOURS = "8:30 AM - 9:30 PM | Open All Days";
 
 
 export default function HomePage() {
@@ -187,6 +190,7 @@ export default function HomePage() {
             </p>
           </div>
           
+          {/* Removed InteractiveMap component */}
           <div className="mt-0 md:mt-8 text-center max-w-2xl mx-auto bg-card p-6 md:p-8 rounded-lg shadow-lg">
             <h3 className="text-2xl font-bold font-heading mb-4 text-card-foreground">Visit Us</h3>
             <p className="text-lg text-card-foreground/90">
