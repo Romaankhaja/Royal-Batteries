@@ -1,8 +1,9 @@
+
 "use client";
 
 import Link from 'next/link';
 import { usePathname } from 'next/navigation';
-import { Menu, X, MapPin, Package, Users, HelpCircle, BatteryCharging } from 'lucide-react';
+import { Menu, X, MapPin, Package, Users, HelpCircle, BatteryCharging, HomeIcon } from 'lucide-react';
 import { useState, useEffect } from 'react';
 import { Button } from '@/components/ui/button';
 import { Sheet, SheetContent, SheetTrigger, SheetClose } from '@/components/ui/sheet';
@@ -10,11 +11,11 @@ import { Logo } from './logo';
 import { cn } from '@/lib/utils';
 
 const navItems = [
-  { href: '/', label: 'Home', icon: BatteryCharging },
-  { href: '/products', label: 'Products', icon: Package },
-  { href: '/find-us', label: 'Find Us', icon: MapPin },
-  { href: '/dealer-application', label: 'Dealer Application', icon: Users },
-  { href: '/faq', label: 'FAQ', icon: HelpCircle },
+  { href: '/', label: 'Home', icon: HomeIcon }, // Changed icon for Home
+  { href: '/#products', label: 'Products', icon: Package },
+  { href: '/#find-us', label: 'Find Us', icon: MapPin },
+  { href: '/#dealer-application', label: 'Dealer Application', icon: Users },
+  { href: '/#faq', label: 'FAQ', icon: HelpCircle },
 ];
 
 export function Header() {
@@ -27,8 +28,45 @@ export function Header() {
   }, []);
   
   if (!isMounted) {
-    return null; // Avoid rendering on server to prevent hydration mismatch for Sheet state
+    // Avoid rendering on server to prevent hydration mismatch for Sheet state
+    // For server components, this could be a Skeleton or null.
+    // For client components that need this pattern, it helps avoid mismatch.
+    return (
+      <header className="sticky top-0 z-50 w-full border-b bg-background/95 backdrop-blur supports-[backdrop-filter]:bg-background/60 shadow-sm">
+        <div className="container mx-auto flex h-16 items-center justify-between px-4 sm:px-6 lg:px-8">
+          <Logo />
+          <div className="hidden md:flex items-center space-x-6">
+            {navItems.map((item) => (
+              <div key={item.href} className={cn(
+                "text-sm font-medium text-foreground/70",
+              )}>
+                {item.label}
+              </div>
+            ))}
+          </div>
+          <div className="md:hidden">
+             <Button variant="ghost" size="icon" disabled>
+                <Menu className="h-6 w-6" />
+             </Button>
+          </div>
+        </div>
+      </header>
+    );
   }
+
+
+  // Function to determine if a nav item is active, considering hash links
+  const isNavItemActive = (itemHref: string) => {
+    if (itemHref === '/') return pathname === '/';
+    // For hash links, we check if the pathname is '/' and the hash matches,
+    // or if the pathname itself (without hash) matches for direct navigations (though less likely now)
+    if (typeof window !== 'undefined') {
+      const currentHash = window.location.hash;
+      if (pathname === '/' && currentHash === itemHref.substring(1)) return true; // itemHref is like '/#products', so substring(1) is '#products'
+    }
+    return pathname === itemHref; // Fallback for non-hash or direct path match
+  };
+
 
   return (
     <header className="sticky top-0 z-50 w-full border-b bg-background/95 backdrop-blur supports-[backdrop-filter]:bg-background/60 shadow-sm">
@@ -41,7 +79,7 @@ export function Header() {
               href={item.href}
               className={cn(
                 "text-sm font-medium transition-colors hover:text-primary",
-                pathname === item.href ? "text-primary" : "text-foreground/70"
+                isNavItemActive(item.href) ? "text-primary" : "text-foreground/70"
               )}
             >
               {item.label}
@@ -75,7 +113,7 @@ export function Header() {
                         onClick={() => setIsMobileMenuOpen(false)}
                         className={cn(
                           "flex items-center space-x-3 rounded-md p-2 text-base font-medium transition-colors hover:bg-accent hover:text-accent-foreground",
-                          pathname === item.href ? "bg-accent text-accent-foreground" : "text-foreground"
+                          isNavItemActive(item.href) ? "bg-accent text-accent-foreground" : "text-foreground"
                         )}
                       >
                         <item.icon className="h-5 w-5" />
@@ -92,3 +130,5 @@ export function Header() {
     </header>
   );
 }
+
+    
