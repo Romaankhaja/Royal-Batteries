@@ -3,7 +3,7 @@
 
 import Link from 'next/link';
 import { usePathname } from 'next/navigation';
-import { Menu, X, MapPin, Package, Users, HelpCircle, BatteryCharging, HomeIcon } from 'lucide-react';
+import { Menu, X, Package, Users, HelpCircle, HomeIcon } from 'lucide-react'; // Removed MapPin
 import { useState, useEffect } from 'react';
 import { Button } from '@/components/ui/button';
 import { Sheet, SheetContent, SheetTrigger, SheetClose } from '@/components/ui/sheet';
@@ -11,9 +11,9 @@ import { Logo } from './logo';
 import { cn } from '@/lib/utils';
 
 const navItems = [
-  { href: '/', label: 'Home', icon: HomeIcon }, // Changed icon for Home
+  { href: '/', label: 'Home', icon: HomeIcon },
   { href: '/#products', label: 'Products', icon: Package },
-  { href: '/#find-us', label: 'Find Us', icon: MapPin },
+  // { href: '/#find-us', label: 'Find Us', icon: MapPin }, // Removed Find Us
   { href: '/#dealer-application', label: 'Dealer Application', icon: Users },
   { href: '/#faq', label: 'FAQ', icon: HelpCircle },
 ];
@@ -28,9 +28,6 @@ export function Header() {
   }, []);
   
   if (!isMounted) {
-    // Avoid rendering on server to prevent hydration mismatch for Sheet state
-    // For server components, this could be a Skeleton or null.
-    // For client components that need this pattern, it helps avoid mismatch.
     return (
       <header className="sticky top-0 z-50 w-full border-b bg-background/95 backdrop-blur supports-[backdrop-filter]:bg-background/60 shadow-sm">
         <div className="container mx-auto flex h-16 items-center justify-between px-4 sm:px-6 lg:px-8">
@@ -54,19 +51,14 @@ export function Header() {
     );
   }
 
-
-  // Function to determine if a nav item is active, considering hash links
   const isNavItemActive = (itemHref: string) => {
     if (itemHref === '/') return pathname === '/';
-    // For hash links, we check if the pathname is '/' and the hash matches,
-    // or if the pathname itself (without hash) matches for direct navigations (though less likely now)
     if (typeof window !== 'undefined') {
       const currentHash = window.location.hash;
-      if (pathname === '/' && currentHash === itemHref.substring(1)) return true; // itemHref is like '/#products', so substring(1) is '#products'
+      if (pathname === '/' && currentHash === itemHref.substring(1)) return true; 
     }
-    return pathname === itemHref; // Fallback for non-hash or direct path match
+    return pathname === itemHref;
   };
-
 
   return (
     <header className="sticky top-0 z-50 w-full border-b bg-background/95 backdrop-blur supports-[backdrop-filter]:bg-background/60 shadow-sm">
@@ -130,5 +122,3 @@ export function Header() {
     </header>
   );
 }
-
-    

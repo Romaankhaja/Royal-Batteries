@@ -4,15 +4,12 @@ import Image from 'next/image';
 import Link from 'next/link';
 import { Button } from '@/components/ui/button';
 import { Card, CardContent, CardHeader, CardTitle, CardDescription } from '@/components/ui/card';
-import { ArrowRight, BatteryCharging, MapPin, Users, HelpCircle, MapPinIcon as FindUsMapPinIcon, UsersIcon as DealerUsersIcon, HelpCircleIcon as FaqHelpCircleIcon } from 'lucide-react';
+import { ArrowRight, BatteryCharging, Users, HelpCircle, UsersIcon as DealerUsersIcon, HelpCircleIcon as FaqHelpCircleIcon } from 'lucide-react';
 
 // Content previously in src/app/products/page.tsx
 import type { Product } from '@/lib/types';
 import { ProductCard } from '@/components/products/product-card';
 import { BatteryCharging as ProductsBatteryChargingIcon } from 'lucide-react';
-
-// Content previously in src/app/find-us/page.tsx
-import { InteractiveMap } from '@/components/map/interactive-map';
 
 // Content previously in src/app/dealer-application/page.tsx
 import { DealerForm } from '@/components/dealer-application/dealer-form';
@@ -146,11 +143,7 @@ export default function HomePage() {
                 Explore Products <ArrowRight className="ml-2 h-5 w-5" />
               </Link>
             </Button>
-            <Button asChild size="lg" variant="outline" className="border-primary-foreground text-primary-foreground hover:bg-primary-foreground/10">
-              <Link href="/#find-us">
-                Find Our Store
-              </Link>
-            </Button>
+            {/* Removed "Find Our Store" button from Hero as the section is removed */}
           </div>
         </div>
       </section>
@@ -169,35 +162,6 @@ export default function HomePage() {
             {sampleProducts.map((product) => (
               <ProductCard key={product.id} product={product} />
             ))}
-          </div>
-        </div>
-      </section>
-
-      {/* Find Us Section */}
-      <section id="find-us" className="py-16 lg:py-24 bg-secondary">
-        <div className="container mx-auto py-12 px-4 sm:px-6 lg:px-8">
-          <div className="flex flex-col items-center text-center mb-12">
-            <FindUsMapPinIcon className="h-16 w-16 text-primary mb-4" />
-            <h2 className="text-4xl font-bold font-heading">Find Our Store</h2>
-            <p className="mt-2 text-lg text-secondary-foreground max-w-2xl">
-              Visit us at our Gajwel location for all your Exide battery needs.
-            </p>
-          </div>
-          
-          <div className="max-w-4xl mx-auto">
-            <InteractiveMap />
-          </div>
-
-          <div className="mt-12 text-center max-w-2xl mx-auto">
-            <h3 className="text-2xl font-bold font-heading mb-4">Visit Us</h3>
-            <address className="text-muted-foreground not-italic">
-              <strong>Royal Batteries - Exide Battery Dealer in Gajwel</strong><br />
-              Main Road, Gajwel, Telangana, India<br />
-              (Near Old Bus Stand)
-            </address>
-            <p className="mt-4 text-muted-foreground">
-              <strong>Hours:</strong> Mon - Sat: 9:00 AM - 7:00 PM | Sun: Closed
-            </p>
           </div>
         </div>
       </section>
@@ -261,5 +225,3 @@ export default function HomePage() {
     </>
   );
 }
-
-    
