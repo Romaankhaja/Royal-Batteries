@@ -1,9 +1,10 @@
+
 "use client";
 
 import { useForm } from "react-hook-form";
 import { zodResolver } from "@hookform/resolvers/zod";
 import { dealerApplicationSchema, type DealerApplicationFormValues } from "@/app/dealer-application/schemas";
-import { submitDealerApplication } from "@/app/dealer-application/actions";
+// Removed submitDealerApplication import as we'll redirect to WhatsApp
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { Textarea } from "@/components/ui/textarea";
@@ -24,6 +25,7 @@ import { useState } from "react";
 export function DealerForm() {
   const { toast } = useToast();
   const [isSubmitting, setIsSubmitting] = useState(false);
+  const ownerWhatsAppNumber = "919397617823"; // Use number without '+' for wa.me link
 
   const form = useForm<DealerApplicationFormValues>({
     resolver: zodResolver(dealerApplicationSchema),
@@ -39,41 +41,34 @@ export function DealerForm() {
 
   async function onSubmit(values: DealerApplicationFormValues) {
     setIsSubmitting(true);
-    try {
-      const result = await submitDealerApplication(values);
-      if (result.success) {
-        toast({
-          title: "Application Submitted!",
-          description: result.message,
-        });
-        form.reset();
-      } else {
-        toast({
-          title: "Submission Failed",
-          description: result.message || "Please check your inputs.",
-          variant: "destructive",
-        });
-        // Handle field-specific errors if provided by the server action
-        if (result.errors) {
-          Object.entries(result.errors).forEach(([fieldName, errors]) => {
-            if (errors && errors.length > 0) {
-              form.setError(fieldName as keyof DealerApplicationFormValues, {
-                type: "server",
-                message: errors.join(", "),
-              });
-            }
-          });
-        }
-      }
-    } catch (error) {
-      toast({
-        title: "Error",
-        description: "An unexpected error occurred. Please try again.",
-        variant: "destructive",
-      });
-    } finally {
-      setIsSubmitting(false);
+
+    const { name, email, phone, businessName, location, message } = values;
+
+    let whatsappMessage = `New HUMSAFAR Dealer Application:\n\n`;
+    whatsappMessage += `Name: ${name}\n`;
+    whatsappMessage += `Email: ${email}\n`;
+    whatsappMessage += `Phone: ${phone}\n`;
+    if (businessName) whatsappMessage += `Business Name: ${businessName}\n`;
+    whatsappMessage += `Location: ${location}\n`;
+    if (message) whatsappMessage += `Message: ${message}\n`;
+
+    const encodedMessage = encodeURIComponent(whatsappMessage);
+    const whatsappUrl = `https://wa.me/${ownerWhatsAppNumber}?text=${encodedMessage}`;
+
+    // Simulate a short delay before redirecting
+    await new Promise(resolve => setTimeout(resolve, 500));
+
+    if (typeof window !== "undefined") {
+      window.open(whatsappUrl, '_blank');
     }
+    
+    toast({
+      title: "Redirecting to WhatsApp...",
+      description: "Please send the pre-filled message to complete your application.",
+    });
+    
+    form.reset();
+    setIsSubmitting(false);
   }
 
   return (
@@ -81,7 +76,7 @@ export function DealerForm() {
       <CardHeader>
         <CardTitle className="text-2xl font-heading">Dealer Application Form</CardTitle>
         <CardDescription>
-          Interested in becoming a HUMSAFAR dealer? Fill out the form below.
+          Interested in becoming a HUMSAFAR dealer? Fill out the form below. We'll redirect you to WhatsApp to submit your details.
         </CardDescription>
       </CardHeader>
       <CardContent>
@@ -176,10 +171,10 @@ export function DealerForm() {
               {isSubmitting ? (
                 <>
                   <Loader2 className="mr-2 h-4 w-4 animate-spin" />
-                  Submitting...
+                  Processing...
                 </>
               ) : (
-                "Submit Application"
+                "Submit via WhatsApp"
               )}
             </Button>
           </form>

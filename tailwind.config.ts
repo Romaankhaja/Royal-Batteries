@@ -1,3 +1,4 @@
+
 import type { Config } from "tailwindcss";
 
 export default {
@@ -12,7 +13,7 @@ export default {
       fontFamily: {
         sans: ['var(--font-open-sans)', 'sans-serif'],
         heading: ['var(--font-montserrat)', 'sans-serif'],
-        orbitron: ['var(--font-orbitron)', 'sans-serif'], // Added Orbitron font family
+        orbitron: ['var(--font-orbitron)', 'sans-serif'], 
       },
   		colors: {
   			background: 'hsl(var(--background))',
@@ -87,11 +88,16 @@ export default {
   				to: {
   					height: '0'
   				}
-  			}
+  			},
+        'pulse-slow': { // Added for breathing animation
+          '0%, 100%': { opacity: '1', transform: 'scale(1)' },
+          '50%': { opacity: '0.8', transform: 'scale(1.05)' },
+        },
   		},
   		animation: {
   			'accordion-down': 'accordion-down 0.2s ease-out',
-  			'accordion-up': 'accordion-up 0.2s ease-out'
+  			'accordion-up': 'accordion-up 0.2s ease-out',
+        'pulse-slow': 'pulse-slow 2.5s cubic-bezier(0.4, 0, 0.6, 1) infinite', // Added for breathing animation
   		}
   	}
   },

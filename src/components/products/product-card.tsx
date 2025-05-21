@@ -4,12 +4,15 @@ import type { Product } from '@/lib/types';
 import { Card, CardContent, CardDescription, CardFooter, CardHeader, CardTitle } from '@/components/ui/card';
 import { Button } from '@/components/ui/button';
 import { CheckCircle } from 'lucide-react';
+import Link from 'next/link';
 
 interface ProductCardProps {
   product: Product;
 }
 
 export function ProductCard({ product }: ProductCardProps) {
+  const primaryPhoneNumber = "+919397617823";
+
   return (
     <Card className="flex flex-col overflow-hidden shadow-lg hover:shadow-xl transition-shadow duration-300">
       <CardHeader className="p-0">
@@ -19,7 +22,7 @@ export function ProductCard({ product }: ProductCardProps) {
             alt={product.name}
             fill
             style={{ objectFit: "contain" }}
-            quality={75} // Added image quality prop
+            quality={75}
             data-ai-hint={product.dataAiHint}
           />
         </div>
@@ -37,8 +40,10 @@ export function ProductCard({ product }: ProductCardProps) {
         </ul>
       </CardContent>
       <CardFooter className="p-6 pt-0">
-        <Button className="w-full bg-primary hover:bg-primary/90 text-primary-foreground">
-          Inquire Now
+        <Button asChild className="w-full bg-primary hover:bg-primary/90 text-primary-foreground">
+          <Link href={`tel:${primaryPhoneNumber}`}>
+            Inquire Now
+          </Link>
         </Button>
       </CardFooter>
     </Card>
