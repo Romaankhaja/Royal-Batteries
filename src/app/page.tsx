@@ -1,20 +1,19 @@
 
-
 import Image from 'next/image';
 import Link from 'next/link';
 import { Button } from '@/components/ui/button';
 import { Card, CardContent, CardHeader, CardTitle, CardDescription } from '@/components/ui/card';
-import { ArrowRight, BatteryCharging, Users, HelpCircle, UsersIcon as DealerUsersIcon, HelpCircleIcon as FaqHelpCircleIcon } from 'lucide-react';
+import { ArrowRight, UsersIcon as DealerUsersIcon, HelpCircleIcon as FaqHelpCircleIcon, MapPinIcon } from 'lucide-react';
 
-// Content previously in src/app/products/page.tsx
+// Product Section Content
 import type { Product } from '@/lib/types';
 import { ProductCard } from '@/components/products/product-card';
 import { BatteryCharging as ProductsBatteryChargingIcon } from 'lucide-react';
 
-// Content previously in src/app/dealer-application/page.tsx
+// Dealer Application Section Content
 import { DealerForm } from '@/components/dealer-application/dealer-form';
 
-// Content previously in src/app/faq/page.tsx
+// FAQ Section Content
 import type { FAQItem } from '@/lib/types';
 import {
   Accordion,
@@ -22,6 +21,9 @@ import {
   AccordionItem,
   AccordionTrigger,
 } from "@/components/ui/accordion";
+
+// Find Us Section Content
+import { InteractiveMap } from '@/components/map/interactive-map';
 
 const sampleProducts: Product[] = [
   {
@@ -113,6 +115,11 @@ const faqItems: FAQItem[] = [
   },
 ];
 
+const STORE_NAME_DISPLAY = "Royal Batteries - Exide Battery Dealer";
+const STORE_ADDRESS_DISPLAY_LINE1 = "Main Road, Gajwel, Telangana, India";
+const STORE_ADDRESS_DISPLAY_LINE2 = "(Near Old Bus Stand)"; // This was in the original Find Us page, re-adding for consistency
+const STORE_HOURS = "Mon - Sat: 9:00 AM - 7:00 PM | Sun: Closed";
+
 
 export default function HomePage() {
   return (
@@ -122,8 +129,8 @@ export default function HomePage() {
         <Image
           src="https://placehold.co/1920x800.png"
           alt="Royal Batteries Hero Background"
-          layout="fill"
-          objectFit="cover"
+          fill
+          style={{objectFit: 'cover'}}
           quality={80}
           priority
           className="z-0"
@@ -143,14 +150,18 @@ export default function HomePage() {
                 Explore Products <ArrowRight className="ml-2 h-5 w-5" />
               </Link>
             </Button>
-            {/* Removed "Find Our Store" button from Hero as the section is removed */}
+             <Button asChild size="lg" variant="outline" className="border-primary-foreground text-primary-foreground hover:bg-primary-foreground/10">
+              <Link href="/#find-us">
+                Find Our Store <MapPinIcon className="ml-2 h-5 w-5" />
+              </Link>
+            </Button>
           </div>
         </div>
       </section>
 
       {/* Products Section */}
       <section id="products" className="py-16 lg:py-24 bg-background">
-        <div className="container mx-auto py-12 px-4 sm:px-6 lg:px-8">
+        <div className="container mx-auto px-4 sm:px-6 lg:px-8">
           <div className="flex flex-col items-center text-center mb-12">
             <ProductsBatteryChargingIcon className="h-16 w-16 text-primary mb-4" />
             <h2 className="text-4xl font-bold font-heading">Our Products</h2>
@@ -166,9 +177,38 @@ export default function HomePage() {
         </div>
       </section>
 
+      {/* Find Us Section */}
+      <section id="find-us" className="py-16 lg:py-24 bg-secondary">
+        <div className="container mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="flex flex-col items-center text-center mb-12">
+            <MapPinIcon className="h-16 w-16 text-primary mb-4" />
+            <h2 className="text-4xl font-bold font-heading">Find Our Store</h2>
+            <p className="mt-2 text-lg text-secondary-foreground max-w-2xl">
+              Visit us at our Gajwel location for all your Exide battery needs.
+            </p>
+          </div>
+          
+          <div className="max-w-4xl mx-auto">
+            <InteractiveMap />
+          </div>
+
+          <div className="mt-12 text-center max-w-2xl mx-auto">
+            <h3 className="text-2xl font-bold font-heading mb-4">Visit Us</h3>
+            <p className="text-secondary-foreground">
+              <strong>{STORE_NAME_DISPLAY}</strong><br />
+              {STORE_ADDRESS_DISPLAY_LINE1}<br />
+              {STORE_ADDRESS_DISPLAY_LINE2}
+            </p>
+            <p className="mt-4 text-secondary-foreground">
+              <strong>Hours:</strong> {STORE_HOURS}
+            </p>
+          </div>
+        </div>
+      </section>
+
       {/* Dealer Application Section */}
       <section id="dealer-application" className="py-16 lg:py-24 bg-background">
-        <div className="container mx-auto py-12 px-4 sm:px-6 lg:px-8">
+        <div className="container mx-auto px-4 sm:px-6 lg:px-8">
           <div className="flex flex-col items-center text-center mb-12">
             <DealerUsersIcon className="h-16 w-16 text-primary mb-4" />
             <h2 className="text-4xl font-bold font-heading">Become a Dealer</h2>
@@ -182,7 +222,7 @@ export default function HomePage() {
 
       {/* FAQ Section */}
       <section id="faq" className="py-16 lg:py-24 bg-secondary">
-        <div className="container mx-auto py-12 px-4 sm:px-6 lg:px-8">
+        <div className="container mx-auto px-4 sm:px-6 lg:px-8">
           <div className="flex flex-col items-center text-center mb-12">
             <FaqHelpCircleIcon className="h-16 w-16 text-primary mb-4" />
             <h2 className="text-4xl font-bold font-heading">Frequently Asked Questions</h2>
@@ -208,7 +248,7 @@ export default function HomePage() {
         </div>
       </section>
 
-      {/* Call to Action Section (Existing) */}
+      {/* Call to Action Section */}
       <section className="py-16 lg:py-24 bg-background">
         <div className="container mx-auto px-4 sm:px-6 lg:px-8 text-center">
           <h2 className="text-3xl font-bold font-heading mb-6">Ready to Get Started?</h2>
@@ -216,7 +256,7 @@ export default function HomePage() {
             Whether you need a new battery, want to become a dealer, or have questions, we're here to help.
           </p>
           <Button asChild size="lg" className="bg-primary hover:bg-primary/90 text-primary-foreground">
-            <Link href="/contact">
+            <Link href="#dealer-application"> {/* Changed to #dealer-application as contact page doesn't exist */}
               Contact Us <ArrowRight className="ml-2 h-5 w-5" />
             </Link>
           </Button>

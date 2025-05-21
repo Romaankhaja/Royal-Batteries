@@ -8,10 +8,10 @@ import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
 
 const API_KEY = process.env.NEXT_PUBLIC_GOOGLE_MAPS_API_KEY;
 
-// Updated coordinates from https://maps.app.goo.gl/CGc54jkMYS78BPB28
+// Coordinates from https://maps.app.goo.gl/CGc54jkMYS78BPB28
 const STORE_LOCATION = { lat: 18.1489083, lng: 78.6818163 }; 
 const STORE_NAME = "Royal Batteries - Exide Battery Dealer in Gajwel";
-const STORE_ADDRESS = "Gajwel, Telangana 502312, India"; // Address seems consistent with the new link
+const STORE_ADDRESS = "Gajwel, Telangana 502312, India";
 
 export function InteractiveMap() {
   const [isMounted, setIsMounted] = useState(false);
@@ -85,9 +85,6 @@ export function InteractiveMap() {
       apiKey={API_KEY} 
       solutionChannel="GMP_QB_avnomapload_v1_react"
       onLoad={() => console.log("Google Maps API Loaded via APIProvider")}
-      // Attempting to catch more specific load errors if the library surfaces them
-      // Note: onError on APIProvider might not catch all types of API key/billing issues, 
-      // as those are often handled by the Maps JS API itself.
     >
       <div style={{ height: '500px', width: '100%' }} className="rounded-lg overflow-hidden shadow-md border">
         <Map
