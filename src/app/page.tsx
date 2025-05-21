@@ -4,7 +4,7 @@ import Link from 'next/link';
 import { Button } from '@/components/ui/button';
 import { Card, CardContent, CardHeader, CardTitle, CardDescription } from '@/components/ui/card';
 import { ArrowRight, Users, HelpCircle, MapPin as MapPinIconLucide, Package, Phone, MessageSquare } from 'lucide-react'; 
-import { Typewriter } from '@/components/ui/typewriter'; // Added Typewriter
+import { Typewriter } from '@/components/ui/typewriter'; 
 
 // Product Section Content
 import type { Product } from '@/lib/types';
@@ -301,9 +301,9 @@ export default function HomePage() {
               </Link>
             </Button>
           </div>
-          <div className="mt-8 text-center">
-            <span className="text-3xl sm:text-4xl md:text-5xl font-bold text-primary drop-shadow-lg">23</span>
-            <span className="text-md sm:text-lg md:text-xl text-primary-foreground drop-shadow-md">
+          <div className="mt-10 text-center filter drop-shadow-[0_0_8px_rgba(255,255,255,0.6)]">
+            <span className="text-4xl sm:text-5xl md:text-6xl font-bold text-primary">23</span>
+            <span className="text-lg sm:text-xl md:text-2xl text-primary-foreground ml-1">
               + years of service
             </span>
           </div>
