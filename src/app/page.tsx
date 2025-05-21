@@ -194,7 +194,7 @@ const sampleProducts: Product[] = [
   },
   {
     id: 'prod-15',
-    name: 'Exide GQP24V2550VA',
+    name: 'Exide GQP24V2550VA', // Corrected name from GQP24V2250VA based on product list
     imageUrl: 'https://www.inverterhome.in/wp-content/uploads/2024/12/Exide-Inverterz-GQP-900VA-Inverter-300x300.jpg',
     dataAiHint: 'office ups',
     specifications: [
@@ -298,6 +298,13 @@ export default function HomePage() {
                 Find Our Store <MapPinIconLucide className="ml-2 h-5 w-5" />
               </Link>
             </Button>
+          </div>
+          {/* "23+ years of service" text added below buttons */}
+          <div className="mt-8 text-center">
+            <span className="text-3xl sm:text-4xl md:text-5xl font-bold text-primary drop-shadow-lg">23</span>
+            <span className="text-md sm:text-lg md:text-xl text-primary-foreground drop-shadow-md">
+              + years of service
+            </span>
           </div>
         </div>
       </section>
@@ -417,4 +424,3 @@ export default function HomePage() {
     </>
   );
 }
-

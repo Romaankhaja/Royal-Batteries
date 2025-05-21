@@ -4,17 +4,14 @@ export function Logo() {
   return (
     <div className="flex flex-col items-start"> {/* Wrapper for vertical stacking */}
       <Link href="/" className="text-primary hover:opacity-80 transition-opacity">
-        <span className="text-2xl font-bold font-orbitron"> {/* New font for Royal Batteries */}
+        <span className="text-2xl font-bold font-orbitron uppercase italic"> {/* Updated: uppercase italic */}
           Royal Batteries
         </span>
-        <span className="block text-xs font-sans text-muted-foreground -mt-1"> {/* Changed color for Medak */}
+        <span className="block text-xs font-sans text-muted-foreground -mt-1">
           Medak
         </span>
       </Link>
-      <div className="text-xs text-muted-foreground leading-tight mt-0.5"> {/* "23+ years" section */}
-        <span className="text-base font-bold text-primary">23</span>
-        <span className="font-medium">+ years of service</span>
-      </div>
+      {/* "23+ years of service" section removed from here */}
     </div>
   );
 }
