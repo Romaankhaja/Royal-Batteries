@@ -301,7 +301,7 @@ export default function HomePage() {
               </Link>
             </Button>
           </div>
-          <div className="mt-10 text-center filter drop-shadow-[0_0_8px_rgba(255,255,255,0.6)]">
+          <div className="mt-10 text-center border border-primary/70 rounded-md py-2 px-3 inline-block">
             <span className="text-4xl sm:text-5xl md:text-6xl font-bold text-primary">23</span>
             <span className="text-lg sm:text-xl md:text-2xl text-primary-foreground ml-1">
               + years of service
@@ -431,3 +431,4 @@ export default function HomePage() {
     </>
   );
 }
+
