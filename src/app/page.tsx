@@ -21,6 +21,7 @@ import {
   AccordionItem,
   AccordionTrigger,
 } from "@/components/ui/accordion";
+import { InteractiveMap } from '@/components/map/interactive-map';
 
 
 const sampleProducts: Product[] = [
@@ -260,7 +261,7 @@ const faqItems: FAQItem[] = [
 const STORE_NAME_DISPLAY = "Royal Batteries - Exide Battery Dealer in Gajwel";
 const STORE_ADDRESS_LINE1_DISPLAY = "Shop No: 7-1/1/1, Opposite Munsif Court";
 const STORE_ADDRESS_LINE2_DISPLAY = "Main Road, Gajwel, Telangana";
-const GOOGLE_MAPS_DIRECTIONS_URL = "https://maps.google.com/?q=Royal+Batteries+-+Exide+Battery+Dealer+in+Gajwel,Gajwel,Telangana+502312,India";
+const GOOGLE_MAPS_DIRECTIONS_URL = "https://www.google.com/maps/dir/?api=1&destination=Royal+Batteries+-+Exide+Battery+Dealer+in+Gajwel,Gajwel,Telangana+502312,India";
 const STORE_HOURS = "8:30 AM - 9:30 PM | Open All Days";
 
 
@@ -270,7 +271,7 @@ export default function HomePage() {
       {/* Hero Section */}
       <section className="relative h-[calc(100vh-10rem)] min-h-[400px] md:min-h-[500px] lg:min-h-[600px] w-full flex items-center justify-center text-center text-primary-foreground overflow-hidden">
         <Image
-          src="http://www.vishwakarmabatteries.com/images/exide-care/exide-care-01.jpg"
+          src="https://i.ytimg.com/vi/WZSHHoKt2RY/sddefault.jpg"
           alt="Royal Batteries Hero Background - Exide Batteries"
           fill
           style={{objectFit: 'cover'}}
