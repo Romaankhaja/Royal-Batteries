@@ -27,7 +27,7 @@ const sampleProducts: Product[] = [
   {
     id: 'prod-1',
     name: 'Exide XLTZ4A',
-    imageUrl: 'https://placehold.co/400x300.png',
+    imageUrl: 'https://i.pinimg.com/736x/bb/1f/90/bb1f904013965aa508c094365e22056f.jpg',
     dataAiHint: 'motorcycle battery',
     specifications: [
       "Standard warranty, T&C apply",
@@ -39,7 +39,7 @@ const sampleProducts: Product[] = [
   {
     id: 'prod-2',
     name: 'Exide ML38B20L',
-    imageUrl: 'https://placehold.co/400x300.png',
+    imageUrl: 'https://www.genuineautoelectricals.com/wp-content/uploads/2018/11/Exide-Mileage.jpg',
     dataAiHint: 'car battery',
     specifications: [
       "36 months warranty, T&C apply",
@@ -51,7 +51,7 @@ const sampleProducts: Product[] = [
   {
     id: 'prod-3',
     name: 'Exide MTRED45L',
-    imageUrl: 'https://placehold.co/400x300.png',
+    imageUrl: 'https://i.pinimg.com/736x/40/93/ae/4093aebe4d5fdfbfd0b984a07ca27ab6.jpg',
     dataAiHint: 'car battery maintenance',
     specifications: [
       "48 months warranty, T&C apply",
@@ -63,7 +63,7 @@ const sampleProducts: Product[] = [
   {
     id: 'prod-4',
     name: 'Exide EY700L',
-    imageUrl: 'https://placehold.co/400x300.png',
+    imageUrl: 'https://5.imimg.com/data5/ANDROID/Default/2024/2/385870694/OX/KH/TZ/15206173/product-jpeg.jpg',
     dataAiHint: 'suv battery',
     specifications: [
       "12 months warranty, T&C apply",
@@ -75,7 +75,7 @@ const sampleProducts: Product[] = [
   {
     id: 'prod-5',
     name: 'Exide MLDIN66',
-    imageUrl: 'https://placehold.co/400x300.png',
+    imageUrl: 'https://5.imimg.com/data5/SELLER/Default/2024/2/384293323/AK/SA/OW/61242310/new-product-500x500.jpeg',
     dataAiHint: 'diesel car',
     specifications: [
       "44 months warranty, T&C apply",
@@ -87,7 +87,7 @@ const sampleProducts: Product[] = [
   {
     id: 'prod-6',
     name: 'Exide DRIVE45L',
-    imageUrl: 'https://placehold.co/400x300.png',
+    imageUrl: 'https://www.genuineautoelectricals.com/wp-content/uploads/exide-drive-battery-banner-595x312.webp',
     dataAiHint: 'tempo battery',
     specifications: [
       "30 months warranty, T&C apply",
@@ -99,7 +99,7 @@ const sampleProducts: Product[] = [
   {
     id: 'prod-7',
     name: 'Exide DRIVE88L',
-    imageUrl: 'https://placehold.co/400x300.png',
+    imageUrl: 'https://www.genuineautoelectricals.com/wp-content/uploads/2022/11/exide-drive-battery.webp',
     dataAiHint: 'truck battery',
     specifications: [
       "18 months warranty, T&C apply",
@@ -111,7 +111,7 @@ const sampleProducts: Product[] = [
   {
     id: 'prod-8',
     name: 'Exide KI75TF',
-    imageUrl: 'https://placehold.co/400x300.png',
+    imageUrl: 'https://5.imimg.com/data5/SELLER/Default/2024/8/446047170/UA/KN/GI/87318993/exide-jai-kisan-ki80t.png',
     dataAiHint: 'commercial vehicle battery',
     specifications: [
       "36 months warranty, T&C apply",
@@ -123,7 +123,7 @@ const sampleProducts: Product[] = [
   {
     id: 'prod-9',
     name: 'Exide KI88T',
-    imageUrl: 'https://placehold.co/400x300.png',
+    imageUrl: 'https://5.imimg.com/data5/SELLER/Default/2024/3/396398304/XP/CU/MQ/44680517/exide-jai-kisan-new2-500x500.jpg',
     dataAiHint: 'heavy duty battery',
     specifications: [
       "42 months warranty, T&C apply",
@@ -135,7 +135,7 @@ const sampleProducts: Product[] = [
   {
     id: 'prod-10',
     name: 'Exide XP1300',
-    imageUrl: 'https://placehold.co/400x300.png',
+    imageUrl: 'https://www.exidecare.com/assets/ProductImages/XP1300.jpg',
     dataAiHint: 'truck power battery',
     specifications: [
       "18 months warranty, T&C apply",
@@ -147,7 +147,7 @@ const sampleProducts: Product[] = [
   {
     id: 'prod-11',
     name: 'Exide XP1500',
-    imageUrl: 'https://placehold.co/400x300.png',
+    imageUrl: 'https://www.exidecare.com/assets/ProductImages/XP1500.jpg',
     dataAiHint: 'bus battery',
     specifications: [
       "24 months warranty, T&C apply",
@@ -159,7 +159,7 @@ const sampleProducts: Product[] = [
   {
     id: 'prod-12',
     name: 'Exide Invamaster (IMTT1500)',
-    imageUrl: 'https://placehold.co/400x300.png',
+    imageUrl: 'https://www.inverterhome.in/wp-content/uploads/2021/08/Exide-InvaMaster-150AH-Tall-Tubular-Battery-FEM0-IMTT1500.jpg',
     dataAiHint: 'tall tubular',
     specifications: [
       "60 months warranty, T&C apply",
@@ -171,7 +171,7 @@ const sampleProducts: Product[] = [
   {
     id: 'prod-13',
     name: 'Exide STAR 1125VA',
-    imageUrl: 'https://placehold.co/400x300.png',
+    imageUrl: 'https://5.imimg.com/data5/SELLER/Default/2023/6/313360315/RE/ZK/KL/53607373/new-exide-star-inverter-banner-500x500.JPG',
     dataAiHint: 'home ups',
     specifications: [
       "24 months on unit, T&C apply",
@@ -183,7 +183,7 @@ const sampleProducts: Product[] = [
   {
     id: 'prod-14',
     name: 'Exide IHST1500',
-    imageUrl: 'https://placehold.co/400x300.png',
+    imageUrl: 'https://exidebatterydealer.com/wp-content/uploads/2024/12/Exide-Inva-Homz-IHST1500.png',
     dataAiHint: 'short tubular',
     specifications: [
       "54 months warranty, T&C apply",
@@ -195,7 +195,7 @@ const sampleProducts: Product[] = [
   {
     id: 'prod-15',
     name: 'Exide GQP24V2550VA',
-    imageUrl: 'https://placehold.co/400x300.png',
+    imageUrl: 'https://www.inverterhome.in/wp-content/uploads/2024/12/Exide-Inverterz-GQP-900VA-Inverter-300x300.jpg',
     dataAiHint: 'office ups',
     specifications: [
       "24 months on unit, T&C apply",
@@ -207,7 +207,7 @@ const sampleProducts: Product[] = [
   {
     id: 'prod-16',
     name: 'Exide DISTILLO Battery Water',
-    imageUrl: 'https://placehold.co/400x300.png',
+    imageUrl: 'https://m.media-amazon.com/images/X/bxt1/M/Qbxt1Byow07HFog._SL640_QL75_FMwebp_.jpg',
     dataAiHint: 'distilled water',
     specifications: [
       "N/A (Consumable)",
@@ -332,10 +332,7 @@ export default function HomePage() {
           </div>
           
           <div className="mt-0 md:mt-8 text-center max-w-2xl mx-auto bg-card p-6 md:p-8 rounded-lg shadow-lg">
-            <h3 className="text-2xl font-bold font-heading mb-4 text-card-foreground">Visit Us</h3>
-            <p className="text-lg text-card-foreground/90">
-              <strong>{STORE_NAME_DISPLAY}</strong>
-            </p>
+            <h3 className="text-2xl font-bold font-heading mb-4 text-card-foreground">{STORE_NAME_DISPLAY}</h3>
             <p className="text-md text-card-foreground/80 mt-2">
               {STORE_ADDRESS_LINE1_DISPLAY}<br />
               {STORE_ADDRESS_LINE2_DISPLAY}
@@ -420,3 +417,4 @@ export default function HomePage() {
     </>
   );
 }
+
