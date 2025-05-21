@@ -8,10 +8,10 @@ import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
 
 const API_KEY = process.env.NEXT_PUBLIC_GOOGLE_MAPS_API_KEY;
 
-// Updated coordinates and details from the provided Google Maps link
-const STORE_LOCATION = { lat: 18.1489133, lng: 78.6792414 }; 
+// Updated coordinates from https://maps.app.goo.gl/CGc54jkMYS78BPB28
+const STORE_LOCATION = { lat: 18.1489083, lng: 78.6818163 }; 
 const STORE_NAME = "Royal Batteries - Exide Battery Dealer in Gajwel";
-const STORE_ADDRESS = "Gajwel, Telangana 502312, India";
+const STORE_ADDRESS = "Gajwel, Telangana 502312, India"; // Address seems consistent with the new link
 
 export function InteractiveMap() {
   const [isMounted, setIsMounted] = useState(false);
@@ -92,12 +92,10 @@ export function InteractiveMap() {
       <div style={{ height: '500px', width: '100%' }} className="rounded-lg overflow-hidden shadow-md border">
         <Map
           defaultCenter={STORE_LOCATION}
-          defaultZoom={17} // Slightly more zoomed in
+          defaultZoom={17} 
           mapId="royal-batteries-map"
           gestureHandling={'greedy'}
           disableDefaultUI={false}
-          // The `onError` prop on the `Map` component itself is not standard for @vis.gl/react-google-maps
-          // Error handling is better managed at the APIProvider level or by observing console errors.
         >
           <AdvancedMarker 
             position={STORE_LOCATION} 
@@ -129,4 +127,3 @@ export function InteractiveMap() {
     </APIProvider>
   );
 }
-
