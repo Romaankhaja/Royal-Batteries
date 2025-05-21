@@ -1,4 +1,5 @@
 
+
 import Image from 'next/image';
 import Link from 'next/link';
 import { Button } from '@/components/ui/button';
@@ -190,7 +191,7 @@ export default function HomePage() {
           <div className="mt-12 text-center max-w-2xl mx-auto">
             <h3 className="text-2xl font-bold font-heading mb-4">Visit Us</h3>
             <address className="text-muted-foreground not-italic">
-              <strong>Royal Batteries - Gajwel Store</strong><br />
+              <strong>Royal Batteries - Exide Battery Dealer in Gajwel</strong><br />
               Main Road, Gajwel, Telangana, India<br />
               (Near Old Bus Stand)
             </address>

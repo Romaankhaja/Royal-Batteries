@@ -8,9 +8,10 @@ import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
 
 const API_KEY = process.env.NEXT_PUBLIC_GOOGLE_MAPS_API_KEY;
 
-const STORE_LOCATION = { lat: 18.1489, lng: 78.6792 }; 
-const STORE_NAME = "Royal Batteries - Gajwel Store";
-const STORE_ADDRESS = "Main Road, Gajwel, Telangana, India";
+// Updated coordinates and details from the provided Google Maps link
+const STORE_LOCATION = { lat: 18.1489133, lng: 78.6792414 }; 
+const STORE_NAME = "Royal Batteries - Exide Battery Dealer in Gajwel";
+const STORE_ADDRESS = "Gajwel, Telangana 502312, India";
 
 export function InteractiveMap() {
   const [isMounted, setIsMounted] = useState(false);
@@ -37,7 +38,7 @@ export function InteractiveMap() {
             <li>Ensure you have a <code>.env.local</code> file in the root of your project.</li>
             <li>In the <code>.env.local</code> file, add the line: <code>NEXT_PUBLIC_GOOGLE_MAPS_API_KEY="YOUR_ACTUAL_KEY_HERE"</code>.</li>
             <li>Replace <code>"YOUR_ACTUAL_KEY_HERE"</code> with your valid Google Maps API key.</li>
-            <li>Make sure <code>.env.local</code> is listed in your <code>.gitignore</code> file to protect your key (this should have been done previously).</li>
+            <li>Make sure <code>.env.local</code> is listed in your <code>.gitignore</code> file to protect your key.</li>
             <li><strong>Important:</strong> You MUST restart your development server after creating or modifying the <code>.env.local</code> file for changes to take effect.</li>
           </ol>
           <p className="mt-4 text-xs text-muted-foreground">
@@ -56,7 +57,14 @@ export function InteractiveMap() {
 
   const handleApiLoadError = (e: Error) => {
     console.error("Google Maps APIProvider load error:", e);
-    setMapError("Failed to load Google Maps API. Please check browser console for details from Google Maps.");
+    // Check for common error messages from the error object if possible
+    if (e.message.includes("ApiNotActivatedMapError") || e.message.includes("InvalidKeyMapError")) {
+      setMapError("Google Maps API Key is invalid or the API is not activated. Please check your Google Cloud Console.");
+    } else if (e.message.includes("BillingNotEnabledMapError")) {
+      setMapError("Billing is not enabled for the Google Cloud project associated with your API key. Please check your Google Cloud Console.");
+    } else {
+      setMapError("Failed to load Google Maps API. Please check browser console for details from Google Maps.");
+    }
   };
 
   if (mapError) {
@@ -77,20 +85,24 @@ export function InteractiveMap() {
       apiKey={API_KEY} 
       solutionChannel="GMP_QB_avnomapload_v1_react"
       onLoad={() => console.log("Google Maps API Loaded via APIProvider")}
-      // The APIProvider itself doesn't have a direct onError for API key/billing issues.
-      // These are typically caught by the Maps JS API and logged to the console.
+      // Attempting to catch more specific load errors if the library surfaces them
+      // Note: onError on APIProvider might not catch all types of API key/billing issues, 
+      // as those are often handled by the Maps JS API itself.
     >
       <div style={{ height: '500px', width: '100%' }} className="rounded-lg overflow-hidden shadow-md border">
         <Map
           defaultCenter={STORE_LOCATION}
-          defaultZoom={15}
+          defaultZoom={17} // Slightly more zoomed in
           mapId="royal-batteries-map"
           gestureHandling={'greedy'}
           disableDefaultUI={false}
+          // The `onError` prop on the `Map` component itself is not standard for @vis.gl/react-google-maps
+          // Error handling is better managed at the APIProvider level or by observing console errors.
         >
           <AdvancedMarker 
             position={STORE_LOCATION} 
             onClick={() => setInfoWindowOpen(true)}
+            title={STORE_NAME}
           >
             <Pin background={'hsl(var(--primary))'} borderColor={'hsl(var(--primary-foreground))'} glyphColor={'hsl(var(--primary-foreground))'} />
           </AdvancedMarker>
@@ -117,3 +129,4 @@ export function InteractiveMap() {
     </APIProvider>
   );
 }
+
