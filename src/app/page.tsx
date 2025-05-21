@@ -3,7 +3,7 @@ import Image from 'next/image';
 import Link from 'next/link';
 import { Button } from '@/components/ui/button';
 import { Card, CardContent, CardHeader, CardTitle, CardDescription } from '@/components/ui/card';
-import { ArrowRight, Users, HelpCircle, MapPin as MapPinIcon, Package } from 'lucide-react'; // Updated imports
+import { ArrowRight, Users, HelpCircle, MapPin as MapPinIcon, Package } from 'lucide-react';
 
 // Product Section Content
 import type { Product } from '@/lib/types';
@@ -21,10 +21,6 @@ import {
   AccordionItem,
   AccordionTrigger,
 } from "@/components/ui/accordion";
-
-// Find Us Section Content
-// InteractiveMap is no longer imported as it's being removed from this page.
-// import { InteractiveMap } from '@/components/map/interactive-map';
 
 const sampleProducts: Product[] = [
   {
@@ -116,11 +112,11 @@ const faqItems: FAQItem[] = [
   },
 ];
 
-// Store details from the most recent provided link: https://maps.app.goo.gl/CGc54jkMYS78BPB28
-// These were previously in interactive-map.tsx, now moved here for direct use.
+// Store details based on user input and https://maps.app.goo.gl/CGc54jkMYS78BPB28
 const STORE_NAME_DISPLAY = "Royal Batteries - Exide Battery Dealer in Gajwel";
-const STORE_ADDRESS_DISPLAY_LINE1 = "Gajwel, Telangana 502312, India"; // Simplified from link
-const STORE_ADDRESS_DISPLAY_LINE2 = "(Near Old Bus Stand)"; // Common reference point
+const STORE_ADDRESS_DISPLAY_LINE1 = "Shop No: 7-1/1/1, Opposite Munsif Court";
+const STORE_ADDRESS_DISPLAY_LINE2 = "Main Road, Gajwel, Telangana";
+const GOOGLE_MAPS_DIRECTIONS_ADDRESS = "Royal Batteries - Exide Battery Dealer in Gajwel, Gajwel, Telangana 502312, India"; // Address from the shared map link for directions
 const STORE_HOURS = "Mon - Sat: 9:00 AM - 7:00 PM | Sun: Closed";
 
 
@@ -191,13 +187,6 @@ export default function HomePage() {
             </p>
           </div>
           
-          {/* Interactive Map has been removed */}
-          {/* 
-          <div className="max-w-4xl mx-auto">
-            <InteractiveMap />
-          </div> 
-          */}
-
           <div className="mt-0 md:mt-8 text-center max-w-2xl mx-auto bg-card p-6 md:p-8 rounded-lg shadow-lg">
             <h3 className="text-2xl font-bold font-heading mb-4 text-card-foreground">Visit Us</h3>
             <p className="text-lg text-card-foreground/90">
@@ -216,7 +205,7 @@ export default function HomePage() {
               className="mt-6 bg-primary hover:bg-primary/90 text-primary-foreground"
             >
               <a 
-                href={`https://www.google.com/maps/dir/?api=1&destination=${encodeURIComponent(STORE_ADDRESS_DISPLAY_LINE1)}`} 
+                href={`https://www.google.com/maps/dir/?api=1&destination=${encodeURIComponent(GOOGLE_MAPS_DIRECTIONS_ADDRESS)}`} 
                 target="_blank" 
                 rel="noopener noreferrer"
               >
