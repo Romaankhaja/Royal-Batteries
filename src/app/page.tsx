@@ -3,7 +3,7 @@ import Image from 'next/image';
 import Link from 'next/link';
 import { Button } from '@/components/ui/button';
 import { Card, CardContent, CardHeader, CardTitle, CardDescription } from '@/components/ui/card';
-import { ArrowRight, Users, HelpCircle, MapPin as MapPinIconLucide, Package } from 'lucide-react'; // Renamed to avoid conflict
+import { ArrowRight, Users, HelpCircle, MapPin as MapPinIconLucide, Package } from 'lucide-react'; 
 
 // Product Section Content
 import type { Product } from '@/lib/types';
@@ -115,8 +115,9 @@ const faqItems: FAQItem[] = [
 const STORE_NAME_DISPLAY = "Royal Batteries - Exide Battery Dealer in Gajwel";
 const STORE_ADDRESS_LINE1_DISPLAY = "Shop No: 7-1/1/1, Opposite Munsif Court";
 const STORE_ADDRESS_LINE2_DISPLAY = "Main Road, Gajwel, Telangana";
-const GOOGLE_MAPS_DIRECTIONS_URL = "https://maps.google.com/maps?q=Royal+Batteries+-+Exide+Battery+Dealer+in+Gajwel,+Gajwel,+Telangana+502312,+India"; // From https://maps.app.goo.gl/CGc54jkMYS78BPB28
+const GOOGLE_MAPS_DIRECTIONS_URL = "https://www.google.com/maps/dir/?api=1&destination=Royal+Batteries+-+Exide+Battery+Dealer+in+Gajwel,+Gajwel,+Telangana+502312,+India";
 const STORE_HOURS = "8:30 AM - 9:30 PM | Open All Days";
+
 
 export default function HomePage() {
   return (
@@ -124,14 +125,14 @@ export default function HomePage() {
       {/* Hero Section */}
       <section className="relative h-[calc(100vh-10rem)] min-h-[400px] md:min-h-[500px] lg:min-h-[600px] w-full flex items-center justify-center text-center text-primary-foreground overflow-hidden">
         <Image
-          src="https://placehold.co/1920x800.png"
-          alt="Royal Batteries Hero Background"
+          src="https://images.jdmagicbox.com/v2/comp/nashik/y6/0253px253.x253.230609221927.v4y6/catalogue/exide-care-apna-auto-electricals-and-battery-hou-nashik-road-nashik-battery-dealers-f8z6p0mfq6.jpg"
+          alt="Royal Batteries Hero Background - Exide Batteries"
           fill
           style={{objectFit: 'cover'}}
           quality={80}
           priority
           className="z-0"
-          data-ai-hint="battery technology"
+          data-ai-hint="exide battery store"
         />
         <div className="absolute inset-0 bg-black/60 z-10" />
         <div className="relative z-20 p-6 max-w-3xl mx-auto">
@@ -214,6 +215,7 @@ export default function HomePage() {
         </div>
       </section>
 
+
       {/* Dealer Application Section */}
       <section id="dealer-application" className="py-16 lg:py-24 bg-background">
         <div className="container mx-auto px-4 sm:px-6 lg:px-8">
@@ -273,3 +275,5 @@ export default function HomePage() {
     </>
   );
 }
+
+    
