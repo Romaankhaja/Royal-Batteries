@@ -9,7 +9,8 @@ import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
 // Store this in your .env.local file as NEXT_PUBLIC_GOOGLE_MAPS_API_KEY
 const API_KEY = process.env.NEXT_PUBLIC_GOOGLE_MAPS_API_KEY || "YOUR_GOOGLE_MAPS_API_KEY_HERE";
 
-const STORE_LOCATION = { lat: 17.8496, lng: 78.6779 }; // Gajwel, Telangana (approximate)
+// Updated coordinates for Royal Batteries - Gajwel Store
+const STORE_LOCATION = { lat: 18.1489, lng: 78.6792 }; 
 const STORE_NAME = "Royal Batteries - Gajwel Store";
 const STORE_ADDRESS = "Main Road, Gajwel, Telangana, India";
 
