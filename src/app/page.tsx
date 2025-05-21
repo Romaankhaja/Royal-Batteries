@@ -22,6 +22,9 @@ import {
   AccordionItem,
   AccordionTrigger,
 } from "@/components/ui/accordion";
+// Map Component (removed from direct import as section is text-only now)
+// import { InteractiveMap } from '@/components/map/interactive-map';
+
 
 const sampleProducts: Product[] = [
   {
@@ -287,7 +290,7 @@ export default function HomePage() {
             Power Up Your Journey with <Typewriter text="Royal Batteries" speed={100} className="inline-block text-primary" />
           </h1>
           <p className="text-lg sm:text-xl md:text-2xl mb-8 drop-shadow-md">
-            Your trusted authorized Exide dealer in Medak. Quality, Reliability, and Service.
+            Your trusted authorized Exide dealer in Gajwel. Quality, Reliability, and Service.
           </p>
           <div className="space-x-4">
             <Button asChild size="lg" className="bg-primary hover:bg-primary/90 text-primary-foreground">
