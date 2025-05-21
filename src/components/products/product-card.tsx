@@ -1,3 +1,4 @@
+
 import Image from 'next/image';
 import type { Product } from '@/lib/types';
 import { Card, CardContent, CardDescription, CardFooter, CardHeader, CardTitle } from '@/components/ui/card';
@@ -12,13 +13,13 @@ export function ProductCard({ product }: ProductCardProps) {
   return (
     <Card className="flex flex-col overflow-hidden shadow-lg hover:shadow-xl transition-shadow duration-300">
       <CardHeader className="p-0">
-        <div className="relative w-full aspect-[4/3]">
+        <div className="relative w-full aspect-[4/3] p-4"> {/* Added p-4 here */}
           <Image
             src={product.imageUrl}
             alt={product.name}
-            layout="fill"
-            objectFit="contain" 
-            className="p-4"
+            fill // Changed from layout="fill"
+            style={{ objectFit: "contain" }} // Added style for objectFit, removed objectFit prop
+            // className="p-4" // Removed p-4 from here
             data-ai-hint={product.dataAiHint}
           />
         </div>
