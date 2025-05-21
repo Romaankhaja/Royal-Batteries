@@ -44,13 +44,13 @@ const sampleProducts: Product[] = [
     id: 'prod-4',
     name: 'Exide EY700L',
     imageUrl: 'https://placehold.co/400x300.png',
-    dataAiHint: 'electric rickshaw',
+    dataAiHint: 'suv battery',
     specifications: [
       "12 months warranty, T&C apply",
-      "Fit for Electric Rickshaws",
-      "Robust Design for Deep Cycling, Long Life"
+      "Fit for SUVs and MUVs",
+      "Robust Design for Demanding Loads, Long Life"
     ],
-    category: 'E-Rickshaw Batteries',
+    category: 'Suitable for SUV Car Batteries',
   },
   {
     id: 'prod-5',
@@ -68,13 +68,13 @@ const sampleProducts: Product[] = [
     id: 'prod-6',
     name: 'Exide DRIVE45L',
     imageUrl: 'https://placehold.co/400x300.png',
-    dataAiHint: 'hatchback car',
+    dataAiHint: 'tempo battery',
     specifications: [
       "30 months warranty, T&C apply",
-      "Fit for Compact & Hatchback Cars",
+      "Fit for Compact Cars & Light Commercial Vehicles (Tempos)",
       "Reliable Starting Power, Value for Money"
     ],
-    category: 'Car Batteries',
+    category: 'Car and Tempo Batteries',
   },
   {
     id: 'prod-7',
@@ -92,49 +92,49 @@ const sampleProducts: Product[] = [
     id: 'prod-8',
     name: 'Exide KI75TF',
     imageUrl: 'https://placehold.co/400x300.png',
-    dataAiHint: 'inverter battery home',
+    dataAiHint: 'commercial vehicle battery',
     specifications: [
       "36 months warranty, T&C apply",
-      "Fit for Home UPS/Inverters (Low Load)",
-      "Tubular Technology, Consistent Power Backup"
+      "Fit for Commercial Vehicles & Heavy Machinery",
+      "Tubular Technology, Consistent Power Backup for Heavy Loads"
     ],
-    category: 'Inverter Batteries',
+    category: 'Commercial Vehicle Batteries',
   },
   {
     id: 'prod-9',
     name: 'Exide KI88T',
     imageUrl: 'https://placehold.co/400x300.png',
-    dataAiHint: 'home inverter',
+    dataAiHint: 'heavy duty battery',
     specifications: [
       "42 months warranty, T&C apply",
-      "Fit for Home UPS/Inverters (Medium Load)",
-      "Enhanced Power Backup, Longer Life"
+      "Fit for Heavy Commercial Vehicles & Gensets",
+      "Enhanced Power for Demanding Applications, Longer Life"
     ],
-    category: 'Inverter Batteries',
+    category: 'Commercial Vehicle Batteries',
   },
   {
     id: 'prod-10',
     name: 'Exide XP1300',
     imageUrl: 'https://placehold.co/400x300.png',
-    dataAiHint: 'power backup',
+    dataAiHint: 'truck power battery',
     specifications: [
       "18 months warranty, T&C apply",
-      "Fit for Home UPS/Inverters",
-      "Quick Recharge, Reliable Backup"
+      "Fit for Trucks, Buses, and other Commercial Vehicles",
+      "Quick Recharge, Reliable Backup for Commercial Use"
     ],
-    category: 'Inverter Batteries',
+    category: 'Commercial Vehicle Batteries',
   },
   {
     id: 'prod-11',
     name: 'Exide XP1500',
     imageUrl: 'https://placehold.co/400x300.png',
-    dataAiHint: 'large inverter',
+    dataAiHint: 'bus battery',
     specifications: [
       "24 months warranty, T&C apply",
-      "Fit for Home UPS/Inverters (Higher Load)",
-      "Higher Capacity, Sustained Performance"
+      "Fit for Heavy Duty Commercial Vehicles (e.g., Buses, Large Trucks)",
+      "Higher Capacity, Sustained Performance for Long Hauls"
     ],
-    category: 'Inverter Batteries',
+    category: 'Commercial Vehicle Batteries',
   },
   {
     id: 'prod-12',
@@ -174,7 +174,7 @@ const sampleProducts: Product[] = [
   },
   {
     id: 'prod-15',
-    name: 'Exide GQP 24V 2550VA',
+    name: 'Exide GQP24V2550VA',
     imageUrl: 'https://placehold.co/400x300.png',
     dataAiHint: 'office ups',
     specifications: [
