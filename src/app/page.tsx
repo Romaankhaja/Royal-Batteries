@@ -21,55 +21,201 @@ import {
   AccordionItem,
   AccordionTrigger,
 } from "@/components/ui/accordion";
+import { InteractiveMap } from '@/components/map/interactive-map';
+
 
 const sampleProducts: Product[] = [
   {
-    id: '1',
-    name: 'Exide Matrix (MTREDDIN74)',
+    id: 'prod-1',
+    name: 'Exide XLTZ4A',
+    imageUrl: 'https://placehold.co/400x300.png',
+    dataAiHint: 'motorcycle battery',
+    specifications: [
+      "Standard warranty, T&C apply",
+      "Fit for Motorcycles, Scooters",
+      "Zero-Maintenance VRLA, High Cranking Power"
+    ],
+    category: 'Two-Wheeler Batteries',
+  },
+  {
+    id: 'prod-2',
+    name: 'Exide ML38B20L',
     imageUrl: 'https://placehold.co/400x300.png',
     dataAiHint: 'car battery',
-    specifications: ['Maintenance Free', '74Ah Capacity', 'For Passenger Vehicles', 'Calcium-Calcium Technology'],
+    specifications: [
+      "36 months warranty, T&C apply",
+      "Fit for Passenger Cars (Small to Mid-size)",
+      "Enhanced Durability, Reliable Performance"
+    ],
     category: 'Car Batteries',
   },
   {
-    id: '2',
-    name: 'Exide Xplore (12XL5L-B)',
+    id: 'prod-3',
+    name: 'Exide MTRED45L',
     imageUrl: 'https://placehold.co/400x300.png',
-    dataAiHint: 'motorcycle battery',
-    specifications: ['Zero-Maintenance VRLA', 'For Motorcycles', 'Spill-proof design', 'High Cranking Power'],
-    category: 'Two-Wheeler Batteries',
+    dataAiHint: 'car battery maintenance',
+    specifications: [
+      "48 months warranty, T&C apply",
+      "Fit for Passenger Cars (Various Models)",
+      "Advanced Calcium-Calcium Technology, Maintenance Free"
+    ],
+    category: 'Car Batteries',
   },
   {
-    id: '3',
-    name: 'Exide Invamaster (IMTT1500)',
+    id: 'prod-4',
+    name: 'Exide EY700L',
     imageUrl: 'https://placehold.co/400x300.png',
-    dataAiHint: 'inverter battery',
-    specifications: ['Tall Tubular Battery', '150Ah Capacity', 'For Home UPS/Inverters', 'Long Life'],
-    category: 'Inverter Batteries',
+    dataAiHint: 'electric rickshaw',
+    specifications: [
+      "12 months warranty, T&C apply",
+      "Fit for Electric Rickshaws",
+      "Robust Design for Deep Cycling, Long Life"
+    ],
+    category: 'E-Rickshaw Batteries',
   },
   {
-    id: '4',
-    name: 'Exide Eezy (EZ700)',
+    id: 'prod-5',
+    name: 'Exide MLDIN66',
     imageUrl: 'https://placehold.co/400x300.png',
-    dataAiHint: 'solar battery',
-    specifications: ['C10 Rating Solar Battery', 'Deep Discharge Application', 'Low Maintenance', 'Robust Design'],
-    category: 'Solar Batteries',
+    dataAiHint: 'diesel car',
+    specifications: [
+      "44 months warranty, T&C apply",
+      "Fit for European & Modern Diesel Cars",
+      "High Cranking Power, DIN Standard"
+    ],
+    category: 'Car Batteries',
   },
-   {
-    id: '5',
-    name: 'Exide Mileage (MLDIN44LH)',
+  {
+    id: 'prod-6',
+    name: 'Exide DRIVE45L',
+    imageUrl: 'https://placehold.co/400x300.png',
+    dataAiHint: 'hatchback car',
+    specifications: [
+      "30 months warranty, T&C apply",
+      "Fit for Compact & Hatchback Cars",
+      "Reliable Starting Power, Value for Money"
+    ],
+    category: 'Car Batteries',
+  },
+  {
+    id: 'prod-7',
+    name: 'Exide DRIVE88L',
     imageUrl: 'https://placehold.co/400x300.png',
     dataAiHint: 'truck battery',
-    specifications: ['Heavy Duty Performance', '44Ah Capacity', 'For Commercial Vehicles', 'Vibration Resistant'],
+    specifications: [
+      "18 months warranty, T&C apply",
+      "Fit for LCVs, Trucks, Buses",
+      "Heavy Duty Performance, Vibration Resistant"
+    ],
     category: 'Commercial Vehicle Batteries',
   },
   {
-    id: '6',
-    name: 'Exide Advanz (ADVZ4L-B)',
+    id: 'prod-8',
+    name: 'Exide KI75TF',
     imageUrl: 'https://placehold.co/400x300.png',
-    dataAiHint: 'scooter battery',
-    specifications: ['Maintenance Free', 'For Scooters', 'AGM Technology', 'Factory Charged'],
-    category: 'Two-Wheeler Batteries',
+    dataAiHint: 'inverter battery home',
+    specifications: [
+      "36 months warranty, T&C apply",
+      "Fit for Home UPS/Inverters (Low Load)",
+      "Tubular Technology, Consistent Power Backup"
+    ],
+    category: 'Inverter Batteries',
+  },
+  {
+    id: 'prod-9',
+    name: 'Exide KI88T',
+    imageUrl: 'https://placehold.co/400x300.png',
+    dataAiHint: 'home inverter',
+    specifications: [
+      "42 months warranty, T&C apply",
+      "Fit for Home UPS/Inverters (Medium Load)",
+      "Enhanced Power Backup, Longer Life"
+    ],
+    category: 'Inverter Batteries',
+  },
+  {
+    id: 'prod-10',
+    name: 'Exide XP1300',
+    imageUrl: 'https://placehold.co/400x300.png',
+    dataAiHint: 'power backup',
+    specifications: [
+      "18 months warranty, T&C apply",
+      "Fit for Home UPS/Inverters",
+      "Quick Recharge, Reliable Backup"
+    ],
+    category: 'Inverter Batteries',
+  },
+  {
+    id: 'prod-11',
+    name: 'Exide XP1500',
+    imageUrl: 'https://placehold.co/400x300.png',
+    dataAiHint: 'large inverter',
+    specifications: [
+      "24 months warranty, T&C apply",
+      "Fit for Home UPS/Inverters (Higher Load)",
+      "Higher Capacity, Sustained Performance"
+    ],
+    category: 'Inverter Batteries',
+  },
+  {
+    id: 'prod-12',
+    name: 'Exide Invamaster (IMTT1500)',
+    imageUrl: 'https://placehold.co/400x300.png',
+    dataAiHint: 'tall tubular',
+    specifications: [
+      "60 months warranty, T&C apply",
+      "Fit for Home UPS/Inverters, High Power Needs",
+      "Tall Tubular Design, Very Long Life, Deep Discharge Resistant"
+    ],
+    category: 'Inverter Batteries',
+  },
+  {
+    id: 'prod-13',
+    name: 'Exide STAR 1125VA',
+    imageUrl: 'https://placehold.co/400x300.png',
+    dataAiHint: 'home ups',
+    specifications: [
+      "24 months on unit, T&C apply",
+      "Powers Fans, Lights, TVs during outages",
+      "Pure Sine Wave Output, Intelligent Charging"
+    ],
+    category: 'Home UPS/Inverters',
+  },
+  {
+    id: 'prod-14',
+    name: 'Exide IHST1500',
+    imageUrl: 'https://placehold.co/400x300.png',
+    dataAiHint: 'short tubular',
+    specifications: [
+      "54 months warranty, T&C apply",
+      "Fit for Home UPS/Inverters (Space Saving Design)",
+      "Short Tubular, Good Backup for Moderate Needs"
+    ],
+    category: 'Inverter Batteries',
+  },
+  {
+    id: 'prod-15',
+    name: 'Exide GQP 24V 2550VA',
+    imageUrl: 'https://placehold.co/400x300.png',
+    dataAiHint: 'office ups',
+    specifications: [
+      "24 months on unit, T&C apply",
+      "Fit for Small Offices, Shops, Larger Homes",
+      "High Capacity, 24V System, Reliable Power"
+    ],
+    category: 'Home/Commercial UPS',
+  },
+  {
+    id: 'prod-16',
+    name: 'Exide DISTILLO Battery Water',
+    imageUrl: 'https://placehold.co/400x300.png',
+    dataAiHint: 'distilled water',
+    specifications: [
+      "N/A (Consumable)",
+      "For Lead-Acid Batteries requiring water top-up",
+      "Maintains Battery Health, Prolongs Life"
+    ],
+    category: 'Battery Accessories',
   },
 ];
 
@@ -115,7 +261,7 @@ const faqItems: FAQItem[] = [
 const STORE_NAME_DISPLAY = "Royal Batteries - Exide Battery Dealer in Gajwel";
 const STORE_ADDRESS_LINE1_DISPLAY = "Shop No: 7-1/1/1, Opposite Munsif Court";
 const STORE_ADDRESS_LINE2_DISPLAY = "Main Road, Gajwel, Telangana";
-const GOOGLE_MAPS_DIRECTIONS_URL = "https://maps.app.goo.gl/CGc54jkMYS78BPB28"; // Royal Batteries - Exide Battery Dealer in Gajwel, Gajwel, Telangana 502312, India
+const GOOGLE_MAPS_DIRECTIONS_URL = "https://maps.app.goo.gl/CGc54jkMYS78BPB28";
 const STORE_HOURS = "8:30 AM - 9:30 PM | Open All Days";
 
 
@@ -275,3 +421,4 @@ export default function HomePage() {
     </>
   );
 }
+
