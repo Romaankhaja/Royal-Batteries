@@ -8,10 +8,9 @@ export function Logo() {
           Royal Batteries
         </span>
         <span className="block text-xs font-sans text-muted-foreground -mt-1">
-          Medak
+          Gajwel, HIT Dealer for Medak District
         </span>
       </Link>
-      {/* "23+ years of service" section removed from here */}
     </div>
   );
 }
