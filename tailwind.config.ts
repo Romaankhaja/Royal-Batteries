@@ -12,6 +12,7 @@ export default {
       fontFamily: {
         sans: ['var(--font-open-sans)', 'sans-serif'],
         heading: ['var(--font-montserrat)', 'sans-serif'],
+        orbitron: ['var(--font-orbitron)', 'sans-serif'], // Added Orbitron font family
       },
   		colors: {
   			background: 'hsl(var(--background))',

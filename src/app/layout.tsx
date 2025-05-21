@@ -1,5 +1,5 @@
 import type {Metadata} from 'next';
-import { Montserrat, Open_Sans } from 'next/font/google';
+import { Montserrat, Open_Sans, Orbitron } from 'next/font/google';
 import './globals.css';
 import { Header } from '@/components/layout/header';
 import { Footer } from '@/components/layout/footer';
@@ -18,6 +18,13 @@ const openSans = Open_Sans({
   display: 'swap',
 });
 
+const orbitron = Orbitron({
+  subsets: ['latin'],
+  variable: '--font-orbitron',
+  weight: ['400', '700'], // Using 400 for regular, 700 for bold
+  display: 'swap',
+});
+
 export const metadata: Metadata = {
   title: 'Royal Batteries - Medak | Exide Dealer',
   description: 'Authorized Exide battery dealer in Medak. Sales, service, and support for all your battery needs.',
@@ -30,11 +37,12 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en" suppressHydrationWarning>
-      <body 
+      <body
         className={cn(
           "min-h-screen bg-background font-sans antialiased",
-          montserrat.variable, 
-          openSans.variable
+          montserrat.variable,
+          openSans.variable,
+          orbitron.variable // Added Orbitron font variable
         )}
       >
         <div className="relative flex min-h-dvh flex-col">
