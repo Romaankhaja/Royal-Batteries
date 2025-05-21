@@ -13,13 +13,13 @@ export function ProductCard({ product }: ProductCardProps) {
   return (
     <Card className="flex flex-col overflow-hidden shadow-lg hover:shadow-xl transition-shadow duration-300">
       <CardHeader className="p-0">
-        <div className="relative w-full aspect-[4/3] p-4"> {/* Added p-4 here */}
+        <div className="relative w-full aspect-[4/3] p-4">
           <Image
             src={product.imageUrl}
             alt={product.name}
-            fill // Changed from layout="fill"
-            style={{ objectFit: "contain" }} // Added style for objectFit, removed objectFit prop
-            // className="p-4" // Removed p-4 from here
+            fill
+            style={{ objectFit: "contain" }}
+            quality={75} // Added image quality prop
             data-ai-hint={product.dataAiHint}
           />
         </div>

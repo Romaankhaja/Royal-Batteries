@@ -1,3 +1,4 @@
+
 import type { Product } from '@/lib/types';
 import { ProductCard } from '@/components/products/product-card';
 import { BatteryCharging } from 'lucide-react';

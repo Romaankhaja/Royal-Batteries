@@ -3,7 +3,7 @@ import Image from 'next/image';
 import Link from 'next/link';
 import { Button } from '@/components/ui/button';
 import { Card, CardContent, CardHeader, CardTitle, CardDescription } from '@/components/ui/card';
-import { ArrowRight, Users, HelpCircle, MapPin as MapPinIcon, Package } from 'lucide-react';
+import { ArrowRight, Users, HelpCircle, MapPin as MapPinIconLucide, Package } from 'lucide-react'; // Renamed to avoid conflict
 
 // Product Section Content
 import type { Product } from '@/lib/types';
@@ -21,10 +21,6 @@ import {
   AccordionItem,
   AccordionTrigger,
 } from "@/components/ui/accordion";
-
-// Map Component (no longer used directly, but kept for potential future use)
-// import { InteractiveMap } from '@/components/map/interactive-map';
-
 
 const sampleProducts: Product[] = [
   {
@@ -117,11 +113,10 @@ const faqItems: FAQItem[] = [
 ];
 
 const STORE_NAME_DISPLAY = "Royal Batteries - Exide Battery Dealer in Gajwel";
-const STORE_ADDRESS_DISPLAY_LINE1 = "Shop No: 7-1/1/1, Opposite Munsif Court";
-const STORE_ADDRESS_DISPLAY_LINE2 = "Main Road, Gajwel, Telangana";
-const GOOGLE_MAPS_DIRECTIONS_ADDRESS = "Royal Batteries - Exide Battery Dealer in Gajwel, Gajwel, Telangana 502312, India"; // From https://maps.app.goo.gl/CGc54jkMYS78BPB28
+const STORE_ADDRESS_LINE1_DISPLAY = "Shop No: 7-1/1/1, Opposite Munsif Court";
+const STORE_ADDRESS_LINE2_DISPLAY = "Main Road, Gajwel, Telangana";
+const GOOGLE_MAPS_DIRECTIONS_URL = "https://maps.google.com/maps?q=Royal+Batteries+-+Exide+Battery+Dealer+in+Gajwel,+Gajwel,+Telangana+502312,+India"; // From https://maps.app.goo.gl/CGc54jkMYS78BPB28
 const STORE_HOURS = "8:30 AM - 9:30 PM | Open All Days";
-
 
 export default function HomePage() {
   return (
@@ -154,7 +149,7 @@ export default function HomePage() {
             </Button>
              <Button asChild size="lg" variant="outline" className="border-primary-foreground text-primary-foreground hover:bg-primary-foreground/10">
               <Link href="/#find-us">
-                Find Our Store <MapPinIcon className="ml-2 h-5 w-5" />
+                Find Our Store <MapPinIconLucide className="ml-2 h-5 w-5" />
               </Link>
             </Button>
           </div>
@@ -183,22 +178,21 @@ export default function HomePage() {
       <section id="find-us" className="py-16 lg:py-24 bg-secondary">
         <div className="container mx-auto px-4 sm:px-6 lg:px-8">
           <div className="flex flex-col items-center text-center mb-12">
-            <MapPinIcon className="h-16 w-16 text-primary mb-4" />
+            <MapPinIconLucide className="h-16 w-16 text-primary mb-4" />
             <h2 className="text-4xl font-bold font-heading">Find Our Store</h2>
             <p className="mt-2 text-lg text-secondary-foreground max-w-2xl">
               Visit us at our Gajwel location for all your Exide battery needs.
             </p>
           </div>
           
-          {/* Removed InteractiveMap component */}
           <div className="mt-0 md:mt-8 text-center max-w-2xl mx-auto bg-card p-6 md:p-8 rounded-lg shadow-lg">
             <h3 className="text-2xl font-bold font-heading mb-4 text-card-foreground">Visit Us</h3>
             <p className="text-lg text-card-foreground/90">
               <strong>{STORE_NAME_DISPLAY}</strong>
             </p>
             <p className="text-md text-card-foreground/80 mt-2">
-              {STORE_ADDRESS_DISPLAY_LINE1}<br />
-              {STORE_ADDRESS_DISPLAY_LINE2}
+              {STORE_ADDRESS_LINE1_DISPLAY}<br />
+              {STORE_ADDRESS_LINE2_DISPLAY}
             </p>
             <p className="mt-4 text-md text-card-foreground/80">
               <strong>Hours:</strong> {STORE_HOURS}
@@ -209,7 +203,7 @@ export default function HomePage() {
               className="mt-6 bg-primary hover:bg-primary/90 text-primary-foreground"
             >
               <a 
-                href={`https://www.google.com/maps/dir/?api=1&destination=${encodeURIComponent(GOOGLE_MAPS_DIRECTIONS_ADDRESS)}`} 
+                href={GOOGLE_MAPS_DIRECTIONS_URL} 
                 target="_blank" 
                 rel="noopener noreferrer"
               >
