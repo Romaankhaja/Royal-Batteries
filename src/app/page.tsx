@@ -270,7 +270,7 @@ export default function HomePage() {
       {/* Hero Section */}
       <section className="relative h-[calc(100vh-10rem)] min-h-[400px] md:min-h-[500px] lg:min-h-[600px] w-full flex items-center justify-center text-center text-primary-foreground overflow-hidden">
         <Image
-          src="https://images.jdmagicbox.com/v2/comp/nashik/y6/0253px253.x253.230609221927.v4y6/catalogue/exide-care-apna-auto-electricals-and-battery-hou-nashik-road-nashik-battery-dealers-f8z6p0mfq6.jpg"
+          src="http://www.vishwakarmabatteries.com/images/exide-care/exide-care-01.jpg"
           alt="Royal Batteries Hero Background - Exide Batteries"
           fill
           style={{objectFit: 'cover'}}

@@ -65,6 +65,12 @@ const nextConfig: NextConfig = {
         port: '',
         pathname: '/**',
       },
+      {
+        protocol: 'http',
+        hostname: 'www.vishwakarmabatteries.com',
+        port: '',
+        pathname: '/**',
+      },
     ],
   },
 };
