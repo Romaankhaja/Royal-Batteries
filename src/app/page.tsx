@@ -115,7 +115,7 @@ const faqItems: FAQItem[] = [
 const STORE_NAME_DISPLAY = "Royal Batteries - Exide Battery Dealer in Gajwel";
 const STORE_ADDRESS_LINE1_DISPLAY = "Shop No: 7-1/1/1, Opposite Munsif Court";
 const STORE_ADDRESS_LINE2_DISPLAY = "Main Road, Gajwel, Telangana";
-const GOOGLE_MAPS_DIRECTIONS_URL = "https://www.google.com/maps/dir/?api=1&destination=Royal+Batteries+-+Exide+Battery+Dealer+in+Gajwel,+Gajwel,+Telangana+502312,+India";
+const GOOGLE_MAPS_DIRECTIONS_URL = "https://maps.app.goo.gl/CGc54jkMYS78BPB28"; // Royal Batteries - Exide Battery Dealer in Gajwel, Gajwel, Telangana 502312, India
 const STORE_HOURS = "8:30 AM - 9:30 PM | Open All Days";
 
 
@@ -148,7 +148,7 @@ export default function HomePage() {
                 Explore Products <ArrowRight className="ml-2 h-5 w-5" />
               </Link>
             </Button>
-             <Button asChild size="lg" variant="outline" className="border-primary-foreground text-primary-foreground hover:bg-primary-foreground/10">
+             <Button asChild size="lg" className="bg-primary hover:bg-primary/90 text-primary-foreground">
               <Link href="/#find-us">
                 Find Our Store <MapPinIconLucide className="ml-2 h-5 w-5" />
               </Link>
@@ -275,5 +275,3 @@ export default function HomePage() {
     </>
   );
 }
-
-    
