@@ -3,7 +3,7 @@ import Image from 'next/image';
 import Link from 'next/link';
 import { Button } from '@/components/ui/button';
 import { Card, CardContent, CardHeader, CardTitle, CardDescription } from '@/components/ui/card';
-import { ArrowRight, Users, HelpCircle, MapPin as MapPinIconLucide, Package, Phone, MessageSquare, Star } from 'lucide-react';
+import { ArrowRight, Users, HelpCircle, MapPin as MapPinIconLucide, Package, Phone, Star, Info, Wrench, CheckCircle } from 'lucide-react';
 import { Typewriter } from '@/components/ui/typewriter';
 
 // Product Section Content
@@ -263,10 +263,34 @@ const faqItems: FAQItem[] = [
   },
 ];
 
+const servicesList = [
+  {
+    title: "Free Battery Testing",
+    description: "Get a complimentary health check for your existing battery.",
+    icon: CheckCircle,
+  },
+  {
+    title: "Professional Installation",
+    description: "Expert installation services for all types of vehicle and inverter batteries.",
+    icon: CheckCircle,
+  },
+  {
+    title: "Old Battery Recycling",
+    description: "We help you dispose of your old batteries responsibly.",
+    icon: CheckCircle,
+  },
+  {
+    title: "Expert Consultation",
+    description: "Guidance on choosing the right battery for your specific needs.",
+    icon: CheckCircle,
+  },
+];
+
+
 const STORE_NAME_DISPLAY = "Royal Batteries - Exide Battery Dealer in Gajwel";
 const STORE_ADDRESS_LINE1_DISPLAY = "Shop No: 7-1/1/1, Opposite Munsif Court";
 const STORE_ADDRESS_LINE2_DISPLAY = "Main Road, Gajwel, Telangana";
-const GOOGLE_MAPS_DIRECTIONS_URL = "https://maps.app.goo.gl/CGc54jkMYS78BPB28";
+const GOOGLE_MAPS_DIRECTIONS_URL = "https://maps.app.goo.gl/CGc54jkMYS78BPB28"; // Used for direct link
 const STORE_HOURS = "8:30 AM - 9:30 PM | Open All Days";
 const PRIMARY_PHONE = "+919397617823";
 const ALTERNATIVE_PHONE = "+917989846947";
@@ -333,6 +357,59 @@ export default function HomePage() {
           </div>
         </div>
       </section>
+
+      {/* About Us Section */}
+      <section id="about-us" className="py-16 lg:py-24 bg-secondary">
+        <div className="container mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="flex flex-col items-center text-center mb-12">
+            <Info className="h-16 w-16 text-primary mb-4" />
+            <h2 className="text-4xl font-bold font-heading">About Royal Batteries</h2>
+            <p className="mt-2 text-lg text-secondary-foreground max-w-2xl">
+              Your Trusted Power Partner in Gajwel.
+            </p>
+          </div>
+          <div className="max-w-3xl mx-auto text-center text-foreground/80 space-y-4">
+            <p>
+              For over 23 years, Royal Batteries has been proudly serving the Gajwel community and the wider Medak district as an authorized Exide battery dealer. Our mission is to provide reliable power solutions with unmatched customer service. 
+            </p>
+            <p>
+              We believe in offering top-quality products, expert advice, and dependable support to ensure your vehicles and appliances always have the power they need. At Royal Batteries, you're not just a customer; you're part of our family.
+            </p>
+             <p>
+              We are committed to honesty, integrity, and providing the best value for your investment.
+            </p>
+          </div>
+        </div>
+      </section>
+
+      {/* Our Services Section */}
+      <section id="our-services" className="py-16 lg:py-24 bg-background">
+        <div className="container mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="flex flex-col items-center text-center mb-12">
+            <Wrench className="h-16 w-16 text-primary mb-4" />
+            <h2 className="text-4xl font-bold font-heading">Our Services</h2>
+            <p className="mt-2 text-lg text-muted-foreground max-w-2xl">
+              More than just batteries, we offer complete power solutions.
+            </p>
+          </div>
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-8 max-w-4xl mx-auto">
+            {servicesList.map((service) => (
+              <Card key={service.title} className="shadow-md hover:shadow-lg transition-shadow">
+                <CardHeader>
+                  <div className="flex items-center">
+                     <service.icon className="h-6 w-6 text-primary mr-3" />
+                    <CardTitle className="text-xl">{service.title}</CardTitle>
+                  </div>
+                </CardHeader>
+                <CardContent>
+                  <p className="text-muted-foreground">{service.description}</p>
+                </CardContent>
+              </Card>
+            ))}
+          </div>
+        </div>
+      </section>
+
 
       {/* Find Us Section */}
       <section id="find-us" className="py-16 lg:py-24 bg-secondary">

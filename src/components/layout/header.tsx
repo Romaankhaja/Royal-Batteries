@@ -3,7 +3,7 @@
 
 import Link from 'next/link';
 import { usePathname } from 'next/navigation';
-import { Menu, X, Package, Users, HelpCircle, HomeIcon, MapPin } from 'lucide-react';
+import { Menu, X, Package, Users, HelpCircle, HomeIcon, MapPin, Info, Wrench, CheckCircle } from 'lucide-react';
 import { useState, useEffect } from 'react';
 import { Button } from '@/components/ui/button';
 import { Sheet, SheetContent, SheetTrigger, SheetClose } from '@/components/ui/sheet';
@@ -13,6 +13,8 @@ import { cn } from '@/lib/utils';
 const navItems = [
   { href: '/', label: 'Home', icon: HomeIcon },
   { href: '/#products', label: 'Products', icon: Package },
+  { href: '/#about-us', label: 'About Us', icon: Info },
+  { href: '/#our-services', label: 'Services', icon: Wrench },
   { href: '/#find-us', label: 'Find Us', icon: MapPin },
   { href: '/#dealer-application', label: 'Dealer Application', icon: Users },
   { href: '/#faq', label: 'FAQ', icon: HelpCircle },
@@ -69,7 +71,7 @@ export function Header() {
     if (itemHref === '/') return pathname === '/' && activeHash === '';
     // For hash links on the homepage
     if (pathname === '/' && itemHref.startsWith('/#')) {
-      return activeHash === itemHref.substring(2); // Compare hash with itemHref's hash part
+      return activeHash === itemHref.substring(1); // Compare hash with itemHref's hash part (e.g. #products)
     }
     // For other direct page links (if any were to be added)
     return pathname === itemHref;
@@ -79,7 +81,9 @@ export function Header() {
     setIsMobileMenuOpen(false);
     // For smooth scroll and hash update
     if (typeof window !== 'undefined') {
-        const element = document.getElementById(hash.substring(1)); // Remove #
+        // The hash parameter already starts with '#', e.g., '#products'
+        const elementId = hash.substring(1); // Remove # to get 'products'
+        const element = document.getElementById(elementId);
         if (element) {
             element.scrollIntoView({ behavior: 'smooth' });
             // Manually update hash if not done by browser immediately or for consistency
@@ -100,11 +104,11 @@ export function Header() {
           {navItems.map((item) => (
             <Link
               key={item.href}
-              href={item.href.startsWith('/#') ? item.href : item.href}
+              href={item.href} // Use full href like '/#products'
               onClick={(e) => {
                 if (item.href.startsWith('/#')) {
                   e.preventDefault();
-                  handleLinkClick(item.href.substring(1)); // Pass full hash like #products
+                  handleLinkClick(item.href); // Pass full hash like '#products'
                 }
               }}
               className={cn(
@@ -139,11 +143,11 @@ export function Header() {
                   {navItems.map((item) => (
                     <SheetClose asChild key={item.href}>
                       <Link
-                        href={item.href.startsWith('/#') ? item.href : item.href}
+                        href={item.href} // Use full href like '/#products'
                         onClick={(e) => {
                            if (item.href.startsWith('/#')) {
                              e.preventDefault();
-                             handleLinkClick(item.href.substring(1)); // Pass full hash like #products
+                             handleLinkClick(item.href); // Pass full hash like '#products'
                            } else {
                              setIsMobileMenuOpen(false); // Close for non-hash links
                            }
