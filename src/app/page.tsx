@@ -22,8 +22,11 @@ import {
   AccordionItem,
   AccordionTrigger,
 } from "@/components/ui/accordion";
-// Map Component (removed from direct import as section is text-only now)
-// import { InteractiveMap } from '@/components/map/interactive-map';
+
+export const metadata = {
+  title: 'Royal Batteries - Authorized Exide Dealer in Gajwel',
+  description: 'Top Exide battery dealer in Gajwel, Medak District. We offer a wide range of car, motorcycle, inverter, and commercial vehicle batteries with sales, service, and support.',
+};
 
 
 const sampleProducts: Product[] = [
@@ -263,7 +266,7 @@ const faqItems: FAQItem[] = [
 const STORE_NAME_DISPLAY = "Royal Batteries - Exide Battery Dealer in Gajwel";
 const STORE_ADDRESS_LINE1_DISPLAY = "Shop No: 7-1/1/1, Opposite Munsif Court";
 const STORE_ADDRESS_LINE2_DISPLAY = "Main Road, Gajwel, Telangana";
-const GOOGLE_MAPS_DIRECTIONS_URL = "https://www.google.com/maps/dir/?api=1&destination=Royal+Batteries+-+Exide+Battery+Dealer+in+Gajwel,Gajwel,Telangana+502312,India";
+const GOOGLE_MAPS_DIRECTIONS_URL = "https://www.google.com/maps/dir/?api=1&destination=Royal+Batteries+-+Exide+Battery+Dealer+in+Gajwel,Gajwel,Telangana+502312,India"; // Derived from https://maps.app.goo.gl/CGc54jkMYS78BPB28
 const STORE_HOURS = "8:30 AM - 9:30 PM | Open All Days";
 const PRIMARY_PHONE = "+919397617823";
 const ALTERNATIVE_PHONE = "+917989846947";
@@ -434,4 +437,3 @@ export default function HomePage() {
     </>
   );
 }
-

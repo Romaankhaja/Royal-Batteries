@@ -3,7 +3,7 @@ import Image from 'next/image';
 import type { Product } from '@/lib/types';
 import { Card, CardContent, CardDescription, CardFooter, CardHeader, CardTitle } from '@/components/ui/card';
 import { Button } from '@/components/ui/button';
-import { CheckCircle } from 'lucide-react';
+import { CheckCircle, Phone } from 'lucide-react'; // Added Phone icon
 import Link from 'next/link';
 
 interface ProductCardProps {
@@ -16,14 +16,15 @@ export function ProductCard({ product }: ProductCardProps) {
   return (
     <Card className="flex flex-col overflow-hidden shadow-lg hover:shadow-xl transition-shadow duration-300">
       <CardHeader className="p-0">
-        <div className="relative w-full aspect-[4/3] p-4">
+        <div className="relative w-full aspect-[4/3]">
           <Image
             src={product.imageUrl}
             alt={product.name}
             fill
             style={{ objectFit: "contain" }}
+            className="p-4" // Added padding around the image within its container
             quality={75}
-            data-ai-hint={product.dataAiHint}
+            data-ai-hint={product.dataAiHint} // Moved dataAiHint here
           />
         </div>
       </CardHeader>
@@ -42,6 +43,7 @@ export function ProductCard({ product }: ProductCardProps) {
       <CardFooter className="p-6 pt-0">
         <Button asChild className="w-full bg-primary hover:bg-primary/90 text-primary-foreground">
           <Link href={`tel:${primaryPhoneNumber}`}>
+            <Phone className="mr-2 h-4 w-4" /> {/* Added Phone icon */}
             Inquire Now
           </Link>
         </Button>
