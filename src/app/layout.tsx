@@ -1,23 +1,25 @@
 
 import type {Metadata} from 'next';
-import { Montserrat, Open_Sans, Orbitron } from 'next/font/google';
+import { Roboto_Slab, Lato, Orbitron } from 'next/font/google'; // Changed Montserrat and Open_Sans to Roboto_Slab and Lato
 import './globals.css';
 import { Header } from '@/components/layout/header';
 import { Footer } from '@/components/layout/footer';
 import { Toaster } from "@/components/ui/toaster";
 import { cn } from '@/lib/utils';
 import Link from 'next/link';
-import { Phone, MessageSquare as WhatsAppIcon } from 'lucide-react'; // Using MessageSquare for WhatsApp
+import { Phone, MessageSquare as WhatsAppIcon } from 'lucide-react';
 
-const montserrat = Montserrat({
+const robotoSlab = Roboto_Slab({ // Changed from montserrat
   subsets: ['latin'],
-  variable: '--font-montserrat',
+  variable: '--font-roboto-slab', // Changed variable name
+  weight: ['400', '700'], // Specify weights for heading
   display: 'swap',
 });
 
-const openSans = Open_Sans({
+const lato = Lato({ // Changed from openSans
   subsets: ['latin'],
-  variable: '--font-open-sans',
+  variable: '--font-lato', // Changed variable name
+  weight: ['400', '700'], // Specify weights for body
   display: 'swap',
 });
 
@@ -46,8 +48,8 @@ export default function RootLayout({
       <body
         className={cn(
           "min-h-screen bg-background font-sans antialiased",
-          montserrat.variable,
-          openSans.variable,
+          robotoSlab.variable, // Use new heading font variable
+          lato.variable,       // Use new body font variable
           orbitron.variable 
         )}
       >

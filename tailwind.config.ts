@@ -11,8 +11,8 @@ export default {
   theme: {
   	extend: {
       fontFamily: {
-        sans: ['var(--font-open-sans)', 'sans-serif'],
-        heading: ['var(--font-montserrat)', 'sans-serif'],
+        sans: ['var(--font-lato)', 'sans-serif'], // Changed from Open Sans to Lato
+        heading: ['var(--font-roboto-slab)', 'sans-serif'], // Changed from Montserrat to Roboto Slab
         orbitron: ['var(--font-orbitron)', 'sans-serif'], 
       },
   		colors: {
