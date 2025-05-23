@@ -3,8 +3,8 @@ import Image from 'next/image';
 import Link from 'next/link';
 import { Button } from '@/components/ui/button';
 import { Card, CardContent, CardHeader, CardTitle, CardDescription } from '@/components/ui/card';
-import { ArrowRight, Users, HelpCircle, MapPin as MapPinIconLucide, Package, Phone, MessageSquare } from 'lucide-react'; 
-import { Typewriter } from '@/components/ui/typewriter'; 
+import { ArrowRight, Users, HelpCircle, MapPin as MapPinIconLucide, Package, Phone, MessageSquare, Star } from 'lucide-react';
+import { Typewriter } from '@/components/ui/typewriter';
 
 // Product Section Content
 import type { Product } from '@/lib/types';
@@ -266,7 +266,7 @@ const faqItems: FAQItem[] = [
 const STORE_NAME_DISPLAY = "Royal Batteries - Exide Battery Dealer in Gajwel";
 const STORE_ADDRESS_LINE1_DISPLAY = "Shop No: 7-1/1/1, Opposite Munsif Court";
 const STORE_ADDRESS_LINE2_DISPLAY = "Main Road, Gajwel, Telangana";
-const GOOGLE_MAPS_DIRECTIONS_URL = "https://www.google.com/maps/dir/?api=1&destination=Royal+Batteries+-+Exide+Battery+Dealer+in+Gajwel,Gajwel,Telangana+502312,India"; // Derived from https://maps.app.goo.gl/CGc54jkMYS78BPB28
+const GOOGLE_MAPS_DIRECTIONS_URL = "https://maps.app.goo.gl/CGc54jkMYS78BPB28";
 const STORE_HOURS = "8:30 AM - 9:30 PM | Open All Days";
 const PRIMARY_PHONE = "+919397617823";
 const ALTERNATIVE_PHONE = "+917989846947";
@@ -420,11 +420,30 @@ export default function HomePage() {
         </div>
       </section>
 
+      {/* Review Section */}
+      <section id="review-us" className="py-16 lg:py-24 bg-background">
+        <div className="container mx-auto px-4 sm:px-6 lg:px-8 text-center">
+          <div className="flex flex-col items-center mb-8">
+            <Star className="h-16 w-16 text-primary mb-4" />
+            <h2 className="text-3xl font-bold font-heading">Share Your Experience!</h2>
+          </div>
+          <p className="text-lg text-muted-foreground mb-8 max-w-2xl mx-auto">
+            Your feedback helps us improve and lets others know about your experience with Royal Batteries.
+            Please take a moment to leave us a review on Google.
+          </p>
+          <Button asChild size="lg" className="bg-primary hover:bg-primary/90 text-primary-foreground">
+            <a href={GOOGLE_MAPS_DIRECTIONS_URL} target="_blank" rel="noopener noreferrer"> {/* Using existing constant for the main map link */}
+              Write a Review <ArrowRight className="ml-2 h-5 w-5" />
+            </a>
+          </Button>
+        </div>
+      </section>
+
       {/* Call to Action Section */}
-      <section className="py-16 lg:py-24 bg-background">
+      <section className="py-16 lg:py-24 bg-secondary">
         <div className="container mx-auto px-4 sm:px-6 lg:px-8 text-center">
           <h2 className="text-3xl font-bold font-heading mb-6">Ready to Get Started?</h2>
-          <p className="text-lg text-muted-foreground mb-8 max-w-2xl mx-auto">
+          <p className="text-lg text-secondary-foreground mb-8 max-w-2xl mx-auto">
             Whether you need a new battery, want to become a dealer, or have questions, we're here to help.
           </p>
           <Button asChild size="lg" className="bg-primary hover:bg-primary/90 text-primary-foreground">
@@ -437,3 +456,5 @@ export default function HomePage() {
     </>
   );
 }
+
+    
